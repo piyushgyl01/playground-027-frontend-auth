@@ -95,7 +95,6 @@ import { useState } from 'react';
         throw new Error(data.message || 'Something went wrong');
       }
 
-      // Save token to localStorage
       if (data.token) {
         localStorage.setItem('token', data.token);
         localStorage.setItem('uuid', data.uuid);
@@ -103,11 +102,9 @@ import { useState } from 'react';
 
       setSuccess(isLogin ? 'Login successful!' : 'Registration successful!');
       
-      // Redirect or update UI
       if (isLogin) {
         window.location.href = '/dashboard';
       } else {
-        // Switch to login form after successful registration
         setIsLogin(true);
       }
 
